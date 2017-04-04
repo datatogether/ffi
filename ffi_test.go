@@ -26,8 +26,8 @@ func TestFilenameFromUrlString(t *testing.T) {
 		{"https://www.epa.gov/caddis-vol1", "caddis-vol1", ""},
 		{"https://www.epa.gov/sites/production/files/2017-02", "2017-02", ""},
 		{"https://www.census.gov/topics/population/age-and-sex.html", "age-and-sex.html", ""},
-		{"https://census.gov/library/publications/2009/compendia/statab/129ed/population.html#NAV_1529793603_0_accd", "population.html#NAV_1529793603_0_accd", ""},
-		{"https://www.census.gov/topics/education/school-enrollment.html?query=param", "school-enrollment.html?query=param", ""},
+		{"https://census.gov/library/publications/2009/compendia/statab/129ed/population.html#NAV_1529793603_0_accd", "population.html", ""},
+		{"https://www.census.gov/topics/education/school-enrollment.html?query=param", "school-enrollment.html", ""},
 		{"https://www.census.gov/topics/housing/housing-vacancies.html", "housing-vacancies.html", ""},
 		// {"https://qri.io/files/not/a/path/image", "", nil},
 	}

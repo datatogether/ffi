@@ -24,14 +24,19 @@ package ffi
 import (
 	"fmt"
 	"io"
+	"net/url"
 	"path/filepath"
 )
 
 // FilenameFromUrlString returns a file with extension if the url
 // looks like it resolves to a filename, otherwise it returns an
 // empty string
-func FilenameFromUrlString(url string) (string, error) {
-	return filepath.Base(url), nil
+func FilenameFromUrlString(rawUrl string) (string, error) {
+	u, err := url.Parse(rawUrl)
+	if err != nil {
+		return "", err
+	}
+	return filepath.Base(u.Path), nil
 }
 
 // FilenameMimeType gives the mimetype of filename

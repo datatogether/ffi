@@ -38,6 +38,13 @@ func FilenameFromUrlString(url string) (string, error)
 FilenameFromUrlString returns a file with extension if the url looks like it
 resolves to a filename, otherwise it returns an empty string
 
+#### func  FilenameMimeType
+
+```go
+func FilenameMimeType(filename string) (string, error)
+```
+FilenameMimeType gives the mimetype of filename
+
 #### func  MimeType
 
 ```go
@@ -52,9 +59,10 @@ func MimeTypeExtension(mimeType string) (string, error)
 ```
 MimeTypeExtension returns an extension for a given MIME-type
 
-#### func  MimeTypeFromFilename
+#### func  SetExtension
 
 ```go
-func MimeTypeFromFilename(filename string) (string, error)
+func SetExtension(filename, mimeType string) (string, error)
 ```
-MimeTypeFromFilename
+SetExtension strips any current extension from filename, replacing it with
+mimeType's corresponding extension

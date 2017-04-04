@@ -34,8 +34,8 @@ func FilenameFromUrlString(url string) (string, error) {
 	return filepath.Base(url), nil
 }
 
-// MimeTypeFromFilename
-func MimeTypeFromFilename(filename string) (string, error) {
+// FilenameMimeType gives the mimetype of filename
+func FilenameMimeType(filename string) (string, error) {
 	return MimeTypeExtension(filepath.Ext(filename))
 }
 
@@ -55,6 +55,17 @@ func ExtensionMimeType(extenstion string) (string, error) {
 		return "", fmt.Errorf("unrecognized extension: '%s'", extenstion)
 	}
 	return mt, nil
+}
+
+// SetExtension strips any current extension from filename,
+// replacing it with mimeType's corresponding extension
+func SetExtension(filename, mimeType string) (string, error) {
+	suffix := filepath.Ext(filename)
+	ext, err := MimeTypeExtension(mimeType)
+	if err != nil {
+		return filename, err
+	}
+	return filename[:len(filename)-len(suffix)] + ext, nil
 }
 
 // MimeType from an io.Reader is the magic we seek

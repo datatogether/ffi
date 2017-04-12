@@ -13,7 +13,7 @@ func TestFilenameFromUrlString(t *testing.T) {
 	cases := []struct {
 		in, out, err string
 	}{
-		{"https://qri.io/files/not/a/path/image.jpg", "image.jpg", ""},
+		{"https://archivers.space/files/not/a/path/image.jpg", "image.jpg", ""},
 		{"https://www.epa.gov/sites/production/files/2017-02/tscainv_feb2017_csv.zip", "tscainv_feb2017_csv.zip", ""},
 		{"https://www.census.gov/topics/business/retail-trade.html", "retail-trade.html", ""},
 		{"https://www.census.gov/topics/education/educational-attainment.html", "educational-attainment.html", ""},
